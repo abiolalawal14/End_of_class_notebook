@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="Interactive data analysis guide for beginners in Africa. Learn Excel, Python, Power BI, MySQL, statistics, and data cleaning with hands-on exercises.">
+    <meta name="keywords" content="data analysis, beginners, Africa, Excel, Python, Power BI, MySQL, statistics, data cleaning, interactive learning">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Data Analyst's Interactive Notebook</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+        <span id="themeIcon">🌙</span>
+    </button>
+
+    <header>
+        <div class="container">
+            <h1>🚀 The Ultimate Data Analyst's Interactive Notebook</h1>
+            <p>A comprehensive, hands-on guide for aspiring data professionals in Africa — with interactive examples, real-world projects, and instant practice</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-content">
+            <a href="#statistics">📊 Statistics</a>
+            <a href="#excel">📈 Excel</a>
+            <a href="#powerbi">✨ Power BI</a>
+            <a href="#python">🐍 Python</a>
+            <a href="#mysql">💾 MySQL</a>
+            <a href="#practice">🎯 Practice Hub</a>
+            <a href="#resources">📚 Resources</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="statistics">
+            <h2>📊 Module 1: Essential Statistics for Data Analysis</h2>
+            
+            <div class="card">
+                <h3>1.1 What is Statistics?</h3>
+                <p>Statistics is the science of collecting, analyzing, interpreting, and presenting data. For a data analyst, it's your toolkit for finding meaningful patterns in the noise.</p>
+                <div class="interactive-demo">
+                    <p>Try this: Generate random sample data</p>
+                    <button class="demo-button" onclick="generateSampleData()">Generate Data</button>
+                    <div class="demo-result" id="sampleDataResult" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>1.2 Measures of Central Tendency</h3>
+                <details>
+                    <summary>Mean (Average) - Interactive Demo</summary>
+                    <div class="details-content">
+                        <p><strong>Definition:</strong> Sum of all values divided by the number of values.</p>
+                        <div class="interactive-demo">
+                            <p>Enter test scores (comma-separated):</p>
+                            <input type="text" id="meanInput" placeholder="40, 60, 80, 90, 70">
+                            <button class="demo-button" onclick="calculateMean()">Calculate Mean</button>
+                            <div class="demo-result" id="meanResult" style="display: none;"></div>
+                        </div>
+                        <div class="tip">
+                            <strong>💡 Pro Tip:</strong> The mean is sensitive to outliers. One extremely high or low score can skew your average significantly.
+                        </div>
+                    </div>
+                </details>
+                <details>
+                    <summary>Median & Mode</summary>
+                    <div class="details-content">
+                        <p><strong>Median:</strong> The middle value when data is sorted. Best for skewed data.</p>
+                        <p><strong>Mode:</strong> The most frequently occurring value.</p>
+                    </div>
+                </details>
+            </div>
+            <div class="quiz-container">
+                <div class="quiz-question">Quick Quiz: Which measure is best for skewed data like income levels?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">A) Mean</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, true)">B) Median</div>
+                    <div class="quiz-option" onclick="selectQuizOption(this, false)">C) Mode</div>
+                </div>
+                <div class="quiz-result"></div>
+            </div>
+        </section>
+
+        <section id="excel">
+            <h2>📈 Module 2: Microsoft Excel Mastery</h2>
+            <div class="card">
+                <h3>2.1 Power Functions & Formulas</h3>
+                <details>
+                    <summary>SUMIFS, COUNTIFS, AVERAGEIFS</summary>
+                    <div class="details-content">
+                        <pre><code>=SUMIFS(Sales[Amount], Sales[Region], "Lagos", Sales[Product], "Rice")
+=COUNTIFS(Students[Grade], ">=70", Students[Attendance], ">=75")</code></pre>
+                        <div class="mistake"><strong>⚠️ Common Error:</strong> Forgetting to use absolute references ($) when copying formulas across cells.</div>
+                    </div>
+                </details>
+                <details>
+                    <summary>Advanced Lookups: XLOOKUP</summary>
+                    <div class="details-content">
+                        <pre><code>=XLOOKUP("Rice", ProductTable[Name], ProductTable[Price], "Not Found")</code></pre>
+                        <div class="tip"><strong>💡 Pro Tip:</strong> XLOOKUP is more flexible and robust than the older VLOOKUP. It can look left and handles errors gracefully.</div>
+                    </div>
+                </details>
+            </div>
+            <div class="interactive-demo">
+                <h3>Excel Formula Playground</h3>
+                <p>Test common Excel functions on a set of numbers:</p>
+                <input type="text" id="excelFormulaInput" placeholder="e.g., 10,20,30,40,50">
+                <br>
+                <button class="demo-button" onclick="testExcelFunction('sum')">SUM</button>
+                <button class="demo-button" onclick="testExcelFunction('average')">AVERAGE</button>
+                <button class="demo-button" onclick="testExcelFunction('max')">MAX</button>
+                <button class="demo-button" onclick="testExcelFunction('min')">MIN</button>
+                <div class="demo-result" id="excelResult" style="display: none;"></div>
+            </div>
+        </section>
+
+        <section id="powerbi">
+            <h2>✨ Module 3: Power BI for Stunning Visuals</h2>
+            <div class="card">
+                <h3>3.1 Power Query & DAX Essentials</h3>
+                <details>
+                    <summary>Common Power Query Steps</summary>
+                    <div class="details-content">
+                        <ol>
+                            <li><strong>Remove empty rows:</strong> Filter out null values to clean your dataset.</li>
+                            <li><strong>Change data types:</strong> Ensure numbers are numbers and dates are dates for correct calculations.</li>
+                            <li><strong>Merge queries:</strong> Join data from different tables (e.g., Sales and Products).</li>
+                        </ol>
+                    </div>
+                </details>
+                <details>
+                    <summary>Key DAX Measures</summary>
+                    <div class="details-content">
+                        <pre><code>Total Sales = SUM(Sales[Amount])
+Sales YTD = TOTALYTD([Total Sales], Calendar[Date])
+Growth Rate = DIVIDE([Sales YTD] - [Sales PY], [Sales PY])</code></pre>
+                    </div>
+                </details>
+            </div>
+            <div class="card">
+                <h3>3.2 Choosing the Right Visualization</h3>
+                <div class="interactive-demo">
+                    <p>What's your data story?</p>
+                    <button class="demo-button" onclick="suggestChart('comparison')">Comparing Values</button>
+                    <button class="demo-button" onclick="suggestChart('trend')">Showing Trends</button>
+                    <button class="demo-button" onclick="suggestChart('composition')">Part of a Whole</button>
+                    <button class="demo-button" onclick="suggestChart('relationship')">Relationships</button>
+                    <div class="demo-result" id="pbiChartSuggestion" style="display: none;"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="python">
+            <h2>🐍 Module 4: Python for Data Analysis</h2>
+            <div class="card">
+                <h3>4.1 pandas - Your Data Manipulation Superhero</h3>
+                <details>
+                    <summary>Essential pandas Operations</summary>
+                    <div class="details-content">
+                        <pre><code>import pandas as pd
+df = pd.read_csv('sales_data.csv')
+df.info()              # Check data types and missing values
+df.describe()          # Get summary statistics
+df.head()              # View first 5 rows
+df.dropna(inplace=True) # Remove rows with any missing values</code></pre>
+                        <div class="tip"><strong>💡 Best Practice:</strong> Always examine your data with `df.info()` and `df.head()` before diving into analysis.</div>
+                    </div>
+                </details>
+            </div>
+            <div class="interactive-demo">
+                <h3>Python Data Analysis Simulator</h3>
+                <p>Simulate common data operations:</p>
+                <button class="demo-button" onclick="simulatePython('load')">Load Dataset</button>
+                <button class="demo-button" onclick="simulatePython('clean')">Clean Data</button>
+                <button class="demo-button" onclick="simulatePython('analyze')">Analyze</button>
+                <button class="demo-button" onclick="simulatePython('visualize')">Visualize</button>
+                <div class="demo-result" id="pythonSimResult" style="display: none;"></div>
+            </div>
+        </section>
+
+        <section id="mysql">
+            <h2>💾 Module 5: MySQL Database Mastery</h2>
+            <div class="card">
+                <h3>5.1 Powerful Query Techniques</h3>
+                <details>
+                    <summary>JOINs - Connecting Your Data</summary>
+                    <div class="details-content">
+                        <pre><code>-- Find all orders placed by customers from Lagos
+SELECT c.first_name, o.order_date, o.total_amount
+FROM customers c
+INNER JOIN orders o ON c.customer_id = o.customer_id
+WHERE c.city = 'Lagos';</code></pre>
+                    </div>
+                </details>
+                <details>
+                    <summary>GROUP BY - Aggregating Data</summary>
+                    <div class="details-content">
+                        <pre><code>-- Calculate total sales for each city
+SELECT city, SUM(o.total_amount) as total_sales
+FROM customers c
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+GROUP BY c.city
+ORDER BY total_sales DESC;</code></pre>
+                    </div>
+                </details>
+            </div>
+            <div class="interactive-demo">
+                <h3>SQL Query Builder</h3>
+                <p>Practice SQL concepts by seeing example queries:</p>
+                <button class="demo-button" onclick="buildQuery('select')">Basic SELECT</button>
+                <button class="demo-button" onclick="buildQuery('join')">JOIN Tables</button>
+                <button class="demo-button" onclick="buildQuery('aggregate')">GROUP BY</button>
+                <button class="demo-button" onclick="buildQuery('window')">Window Functions</button>
+                <div class="demo-result" id="sqlResult" style="display: none;"></div>
+            </div>
+        </section>
+
+        <section id="practice">
+            <h2>🎯 Practice Hub - Apply Your Skills</h2>
+            <div class="card">
+                <h3>🏆 Mini Project: Market Analysis Dashboard</h3>
+                <p><strong>Scenario:</strong> You're analyzing sales data for a West African agricultural cooperative. Your goal is to identify top-performing regions and seasonal trends.</p>
+                <div class="interactive-demo">
+                    <button class="demo-button" onclick="startProject(1)">Download Sample Data</button>
+                    <button class="demo-button" onclick="showProjectTips(1)">Get Started Tips</button>
+                    <div class="demo-result" id="project1Result" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="card">
+                <h3>🧠 Knowledge Check Quizzes</h3>
+                <div class="quiz-container">
+                    <div class="quiz-question">Which Excel function would you use to find the total sales for "Lagos" in the "Rice" category?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectQuizOption(this, false)">A) VLOOKUP</div>
+                        <div class="quiz-option" onclick="selectQuizOption(this, true)">B) SUMIFS</div>
+                        <div class="quiz-option" onclick="selectQuizOption(this, false)">C) COUNTIFS</div>
+                    </div>
+                    <div class="quiz-result"></div>
+                </div>
+                <div class="quiz-container">
+                    <div class="quiz-question">In Python pandas, which method removes duplicate rows from a DataFrame?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="selectQuizOption(this, false)">A) .remove_duplicates()</div>
+                        <div class="quiz-option" onclick="selectQuizOption(this, true)">B) .drop_duplicates()</div>
+                        <div class="quiz-option" onclick="selectQuizOption(this, false)">C) .unique()</div>
+                    </div>
+                    <div class="quiz-result"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources">
+            <h2>📚 Resources & Next Steps</h2>
+            <div class="card">
+                <h3>🔗 Essential Links</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="https://nigerianstat.gov.ng/" target="_blank" style="color: var(--accent-color);">Nigeria Bureau of Statistics</a></li>
+                    <li><a href="https://data.worldbank.org/" target="_blank" style="color: var(--accent-color);">World Bank Open Data</a></li>
+                    <li><a href="https://www.kaggle.com/datasets" target="_blank" style="color: var(--accent-color);">Kaggle Datasets</a></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>💼 Career Pathways</h3>
+                <p>Your skills open doors to several exciting roles:</p>
+                <ul>
+                    <li><strong>Data Analyst:</strong> Transform raw data into actionable business insights.</li>
+                    <li><strong>Business Intelligence (BI) Analyst:</strong> Create dashboards and reports to track performance.</li>
+                    <li><strong>Data Scientist:</strong> Build predictive models using machine learning (a great next step!).</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <button class="fab" onclick="scrollToTop()" title="Back to top">↑</button>
+
+    <footer>
+        <div class="container">
+            <h3>🙏 Acknowledgments</h3>
+            <p>This interactive notebook was inspired by the foundational work of <strong>Chinwe</strong> and guided by our mentor <strong>Abiola Lawal</strong> (Data Consultant).</p>
+            <p style="margin-top: 2rem; opacity: 0.8;">© 2025 The Ultimate Data Analyst's Interactive Notebook | Empowering African Data Professionals</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
