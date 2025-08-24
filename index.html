@@ -6,7 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Ultimate Data Analyst's Interactive Notebook</title>
+    <!-- Link to your CSS file -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts link for icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     <div class="progress-container">
@@ -37,6 +40,7 @@
     </nav>
 
     <main class="container">
+        <!-- Statistics Section -->
         <section id="statistics">
             <h2>📊 Module 1: Essential Statistics for Data Analysis</h2>
             
@@ -86,6 +90,7 @@
             </div>
         </section>
 
+        <!-- Excel Section -->
         <section id="excel">
             <h2>📈 Module 2: Microsoft Excel Mastery</h2>
             <div class="card">
@@ -119,6 +124,7 @@
             </div>
         </section>
 
+        <!-- Power BI Section -->
         <section id="powerbi">
             <h2>✨ Module 3: Power BI for Stunning Visuals</h2>
             <div class="card">
@@ -155,6 +161,7 @@ Growth Rate = DIVIDE([Sales YTD] - [Sales PY], [Sales PY])</code></pre>
             </div>
         </section>
         
+        <!-- Python Section -->
         <section id="python">
             <h2>🐍 Module 4: Python for Data Analysis</h2>
             <div class="card">
@@ -183,6 +190,7 @@ df.dropna(inplace=True) # Remove rows with any missing values</code></pre>
             </div>
         </section>
 
+        <!-- MySQL Section -->
         <section id="mysql">
             <h2>💾 Module 5: MySQL Database Mastery</h2>
             <div class="card">
@@ -220,6 +228,7 @@ ORDER BY total_sales DESC;</code></pre>
             </div>
         </section>
 
+        <!-- Practice Hub Section -->
         <section id="practice">
             <h2>🎯 Practice Hub - Apply Your Skills</h2>
             <div class="card">
@@ -254,6 +263,7 @@ ORDER BY total_sales DESC;</code></pre>
             </div>
         </section>
 
+        <!-- Resources & Next Steps Section -->
         <section id="resources">
             <h2>📚 Resources & Next Steps</h2>
             <div class="card">
@@ -286,6 +296,29 @@ ORDER BY total_sales DESC;</code></pre>
         </div>
     </footer>
 
+    <!-- AI Chatbot -->
+    <div class="chatbot-toggler">
+        <span class="material-symbols-rounded">smart_toy</span>
+        <span class="material-symbols-rounded">close</span>
+    </div>
+    <div class="chatbot">
+        <header>
+            <h2>Data AI Assistant 🤖</h2>
+            <span class="close-btn material-symbols-rounded">close</span>
+        </header>
+        <ul class="chatbox">
+            <li class="chat incoming">
+                <span class="material-symbols-rounded">smart_toy</span>
+                <p>Hi there! I'm your AI assistant. Ask me anything about data analysis, and I'll do my best to help you.</p>
+            </li>
+        </ul>
+        <div class="chat-input">
+            <textarea placeholder="Ask a question..." required></textarea>
+            <span id="send-btn" class="material-symbols-rounded">send</span>
+        </div>
+    </div>
+
+    <!-- Link to your JavaScript file -->
     <script src="js/script.js"></script>
 </body>
 </html>
